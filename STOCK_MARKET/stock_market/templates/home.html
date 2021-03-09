@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if ticker %}
+	{{ ticker }}
+{% endif %}
+
+{% if api %}
+	{% if api == "Error, 404 No found" %}
+		There was a problem, please try again later. 
+		
+	{% else %}
+		<h1>{{ api.companyName }}</h1><br/>
+		Price: ${{ api.latestPrice }}<br/>
+		previous Close: {{ api.previousClose }}<br/>
+		market Cap: {{ api.marketCap }}<br/>
+		ytd Change: {{ api.ytdChange }}<br/>
+		week52High: {{ api.week52High }}<br/>
+		week52Low: {{ api.week52Low }}<br/>
+
+	{% endif %}
+{% endif %}
+
+{% endblock %}
+
+##API Token pk_31a6f56345a6414ebe439630100bab82
